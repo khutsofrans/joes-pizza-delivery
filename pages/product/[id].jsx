@@ -95,7 +95,7 @@ const Product = ({ pizza }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-    const res = await axios.get(`http://joes-pizza-delivery.vercel.app/api/products/${params.id}`);
+    const res = await axios.get(`http://joe-pizza-delivery.vercel.app/api/products/${params.id}`);
     return {
         props: {
             pizza: res.data,

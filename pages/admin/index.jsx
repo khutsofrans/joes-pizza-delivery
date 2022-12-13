@@ -10,7 +10,7 @@ const Index = ({ orders, products }) => {
     const status = ["preparing", "on the way", "delivered"]
     const handleDelete = async (id) => {
         try {
-            const res = await axios.delete("http://joes-pizza-delivery.vercel.app/api/products/" + id);
+            const res = await axios.delete("http://joe-pizza-delivery.vercel.app/api/products/" + id);
             setPizzaList(pizzaList.filter(pizza => pizza._id !== id));
         } catch (err) {
             console.log(err)
@@ -23,7 +23,7 @@ const Index = ({ orders, products }) => {
         const currentStatus = item.status;
 
         try {
-            const res = await axios.put("http://joes-pizza-delivery.vercel.app/api/orders/" + id, { status: currentStatus + 1 });
+            const res = await axios.put("http://joe-pizza-delivery.vercel.app/api/orders/" + id, { status: currentStatus + 1 });
             setOrderList([
                 res.data, ...orderList.filter((order) => order._id !== id),
             ]);
@@ -109,8 +109,8 @@ export const getServerSideProps = async (ctx) => {
             }
         }
     }
-    const productRes = await axios.get("http://joes-pizza-delivery.vercel.app/api/products");
-    const orderRes = await axios.get("http://joes-pizza-delivery.vercel.app/api/orders");
+    const productRes = await axios.get("http://joe-pizza-delivery.vercel.app/api/products");
+    const orderRes = await axios.get("http://joe-pizza-delivery.vercel.app/api/orders");
 
     return {
         props: {

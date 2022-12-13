@@ -92,7 +92,7 @@ const Order = ({ order }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-    const res = await axios.get(`http://joes-pizza-delivery.vercel.app/api/orders/${params.id}`);
+    const res = await axios.get(`http://joe-pizza-delivery.vercel.app/api/orders/${params.id}`);
     return {
         props: { order: res.data },
     };
